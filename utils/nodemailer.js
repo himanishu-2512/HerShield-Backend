@@ -11,7 +11,7 @@ const sendMail = async (email, subject, message) => {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASSWORD,
       },
-      proxy: 'http://proxy-host:1234'
+      proxy: 'https://hershield-backend-production.up.railway.app/'
     });
 
     await transporter.sendMail({
