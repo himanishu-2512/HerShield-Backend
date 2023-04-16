@@ -1,0 +1,48 @@
+const mongoose=require("mongoose")
+const userSchema=new mongoose.Schema({
+name:{
+    type:String,
+    required:true
+},
+email:{
+    type:String,
+    require:true,
+    unique:true
+},
+contactno:{
+    type:Number,
+    require:true,
+},
+password:{
+    type:String,
+    require:true,
+},
+isVerified:{
+    type:Boolean,
+    default:false,
+},
+adhaarno:{
+    type:Number,
+},
+city:{
+    type:String,
+},
+working:{
+    type:String,
+    Option:["HomeMaker","Working"]
+},
+emergency:[
+    {
+        type:Number
+    }
+],
+complaints:[{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'Complaint'}
+],
+posts:[{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'Post'}
+]
+});
+module.exports=new mongoose.model("User",userSchema);
