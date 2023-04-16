@@ -3,8 +3,8 @@ const router = require("express").Router();
 
 
 
-router.post("/newpost", createPost);
-router.post("/updatepost/:userId/:postId", updatePost);
-router.delete("/deletepost/:userId/:postId", deletePost);
+router.post("/newpost", createPost);//caption,userId
+router.post("/updatepost/:userId/:postId", updatePost);//userId,postId
+router.delete("/deletepost/:userId/:postId", deletePost);//userId,postId
 router.get("/allposts",allPosts)
 module.exports = router;

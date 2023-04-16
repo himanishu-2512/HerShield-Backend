@@ -31,9 +31,18 @@ working:{
     type:String,
     Option:["HomeMaker","Working"]
 },
+activepin:{
+    type:String,
+},
 emergency:[
     {
-        type:Number
+        type:String,
+    }
+],
+SOS:[
+    {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'SOS'
     }
 ],
 complaints:[{

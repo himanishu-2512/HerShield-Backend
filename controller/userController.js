@@ -4,6 +4,7 @@ const bcrypt=require("bcrypt")
 const sendMail=require("../utils/nodemailer")
 const axios = require("axios");
 const rapidapi=require("rapidapi")
+const SOS=require("../model/sos/sosModel")
 require("dotenv").config()
 module.exports={
 //registration of user
@@ -285,7 +286,70 @@ statusindividual:async(req,res)=>{
     } catch (error) {
         
     }
-    }
+    },
 
+createsos:async(req,res)=>{
+try {
+    const {userId,longitude,latitude}=req.body;
+const user=await User.findOne({_id:userId})
+const sos=await SOS.create({
+userId,
+longitude,
+latitude,
+status:"Active",
+})
+await user.SOS.push(sos._id);
+await user.save()
+res.json({message:"SOS created sucessfully",status:true,sos})
+} catch (error) {
+    res.json({message:error.message,status:false})
+}
+},
+falsesos:async(req,res)=>{
+try {
+    const {userId,sosId,activepin}=req.body
+    const user=await User.findOne({_id:userId})
+    if(user.activepin==activepin){
+        const sos=await SOS.findOne({sosId})
+        sos.status="False SOS"
+       await  sos.save()
+       res.json({message:"SOS status is updated to False SOS",status:true})
+    }
+    else{
+        res.json({message:"SOS status is not updated",status:false})
+    }
+} catch (error) {
+    console.log(error)
+    res.json({message:error.message,status:false})
+}
+},
+activepin:async(req,res)=>{
+const {userId,activepin}=req.body
+const user=await User.findOne({_id:userId})
+user.activepin=activepin
+await user.save()
+
+
+
+},
+safesos:async(req,res)=>{
+try {
+    const {userId,activepin,sosId}=req.body
+const user=await User.findOne({_id:userId});
+if(user.activepin==activepin){
+    const sos=await SOS.findOne({_id:sosId})
+    sos.status="Safe"
+    sos.save()
+    res.json({mesage:"status upadated to safe",status:true})
+}
+else
+res.json({message:"status not updated successfully",status:"true"})
+}
+ catch (error) {
+    console.log(error)
+    res.json({mesage:error.message,status:false})
 }
 
+},
+
+}

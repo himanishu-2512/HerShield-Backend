@@ -4,11 +4,10 @@ const Comment = require("../model/community/commentModel");
 
 module.exports.createPost = async (req, res) => {
   try {
-    const { userId, img, title, caption } = req.body;
+    const { userId, caption } = req.body;
     const post = await Post.create({
       userId,
-      img,
-      title,
+      
       caption,
     });
     const user = await User.findById(userId);
@@ -24,14 +23,13 @@ module.exports.createPost = async (req, res) => {
 module.exports.updatePost = async (req, res) => {
   try {
     const { userId, postId } = req.params;
-    const { img, title, caption } = req.body;
+    const { caption } = req.body;
     const post = await Post.findById(postId);
     if (post.userId == userId) {
       const postnum = await Post.findByIdAndUpdate(
         postId,
         {
-          img,
-          title,
+          
           caption,
         },
         { new: true }

@@ -10,9 +10,19 @@ policeId:{
 },
 status:{
     type:String,
-    enum:["Active","Safe","Rescued",""]
+    enum:["Active","Safe","Rescued","False SOS"]
+},
+longitude:{
+    type:String,
+    
+},
+latitude:{
+type:String,
 }
 
 
 
-})
+}
+,{timestamps:true})
+
+module.exports=new mongoose.model("SOS",sosSchema)
