@@ -52,6 +52,10 @@ complaints:[{
 posts:[{
     type:mongoose.Schema.Types.ObjectId,
     ref:'Post'}
-]
+],
+witnesscomplaints:[{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'WitnessComplaint'
+}]
 });
 module.exports=new mongoose.model("User",userSchema);

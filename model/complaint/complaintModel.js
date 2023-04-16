@@ -71,7 +71,7 @@ offendersworkingrelationship:{
     required:true,
 },
 status:{
-    type:mongoose.Types.ObjectId,
+    type:mongoose.Schema.Types.ObjectId,
     ref:'ComplaintStatus',
 }
 },

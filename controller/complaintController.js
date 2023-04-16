@@ -29,7 +29,7 @@ register:async(req,res)=>{
         offendersworkingrelationship
     })
 if(complaint){
-   await user.complaints.push(complaint)
+   await user.complaints.push(complaint._id)
    await user.save()
 res.json({message:"compalaint registered sucessfully",status:true})}
 else
@@ -71,7 +71,7 @@ registerwitness:async(req,res)=>{
         victimname,victimphone, victimemail,victimdesignation,victimworkingrealtionship
     })
 if(complaint){
-   await user.complaints.push(complaint)
+   await user.witnesscomplaints.push(complaint._id)
    await user.save()
 res.json({message:"compalaint registered sucessfully",status:true})}
 else
@@ -90,7 +90,24 @@ complaintall:async(req,res)=>{
     try {
         let {skip,limit}=req.query
 
-   const complaint=await Complaint.find().skip(skip).limit(limit).populate('userId');
+   const complaint=await Complaint.find().skip(skip).limit(limit)
+    if(complaint)
+    res.json({message:"These are the complaints",status:true,complaint})
+    else
+    res.json({message:"something went wrong",status:false})
+    } catch (error) {
+        
+        console.log(error)
+        res.json({message:error.message,status:false});
+    }
+
+
+},
+complaintallwitness:async(req,res)=>{
+    try {
+        let {skip,limit}=req.query
+
+   const complaint=await WitnessComplaint.find().skip(skip).limit(limit)
     if(complaint)
     res.json({message:"These are the complaints",status:true,complaint})
     else
