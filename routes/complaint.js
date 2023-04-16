@@ -1,5 +1,5 @@
 const router=require("express").Router()
-const {register,complaintall,complaintuser,complaintpolice,complaintuseradmin,complaintuserpolice} =require("../controller/complaintController")
+const {register,complaintall,complaintuser,complaintpolice,complaintuseradmin,complaintuserpolice,registerwitness} =require("../controller/complaintController")
 
 
 router.get("/all",complaintall)
