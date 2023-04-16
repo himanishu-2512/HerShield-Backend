@@ -50,7 +50,7 @@ registerwitness:async(req,res)=>{
         const {userId,name,phone,email,designation,contactno,adhaar,organisationname,organisationemail,organisationphone,organisationhead,organisationstate,organisationdistrict,organisationaddress, offendersname,offendersdesignation,offendersworkingrelationship,victimname,victimphone, victimemail,victimdesignation,victimworkingrealtionship}=req.body
         const user=await User.findById(userId)
         if(user){
-    const complaint=await Complaint.create({
+    const complaint=await WitnessComplaint.create({
         userId,
         name,
         phone,
