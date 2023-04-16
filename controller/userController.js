@@ -367,5 +367,20 @@ soshistory:async(req,res)=>{
         res.json({message:error.message,status:false})
     }
 
+},
+sosall:async(req,res)=>{
+    try {
+        let {skip,limit}=req.query
+
+   const complaint=await SOS.find().skip(skip).limit(limit)
+    if(complaint)
+    res.json({message:"These are the SOS",status:true,complaint})
+    else
+    res.json({message:"something went wrong",status:false})
+    } catch (error) {
+        
+        console.log(error)
+        res.json({message:error.message,status:false});
+    }
 }
 }
