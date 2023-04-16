@@ -1,6 +1,6 @@
 const express=require("express")
 const route=express.Router()
-const {register,login,forgotPassword,verifyToken,verifyEmail, adhaarcard, updateProfile, updateContacts,allusers,createsos, activepin, falsesos, safesos, soshistory} =require("../controller/userController")
+const {register,login,forgotPassword,verifyToken,verifyEmail, adhaarcard, updateProfile, updateContacts,allusers,createsos, activepin, falsesos, safesos, soshistory, sosall} =require("../controller/userController")
 route.post("/register",register)//name,email,password,contactno
 route.post("/login",login)//email,password
 route.post("/forgotpassword",forgotPassword)//email
@@ -15,4 +15,5 @@ route.post("/activepin",activepin)//userId,activepin
 route.post("/falsesos",falsesos)//userId,activepin,sosId
 route.post("/safesos",safesos)//userId,activepin,sosId
 route.get("/soshistory",soshistory)//userId
+route.get("/sosall",sosall)
 module.exports=route
