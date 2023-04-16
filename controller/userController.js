@@ -33,11 +33,10 @@ if(user){
         user.email,
         "HerShield Verification Code",
         `Hello, this is the OTP requested for verification, the token will be valid only for 1 hour!!! ${token.token}`
-      ).then((resp)=>{ res.json({
-        message:"user registered suceesfully and sent a mail on your email address",status:200,result:true
-    })}).catch(err=>console.log(err));
+      )
      
-    
+    res.json({
+        message:"user registered suceesfully and sent a mail on your email address",status:200,result:true})
 
 }
     else{
