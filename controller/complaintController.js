@@ -69,7 +69,7 @@ registerwitness:async(req,res)=>{
         offendersname,
         offendersdesignation,
         offendersworkingrelationship,
-        victimname,victimphone, victimemail,victimdesignation,victimworkingrealtionship
+        victimname,victimphone, victimemail,victimdesignation,victimworkingrelationship
     })
 if(complaint){
    await user.witnesscomplaints.push(complaint._id)
