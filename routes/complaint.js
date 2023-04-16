@@ -16,8 +16,8 @@ router.post("/register/witness",registerwitness)//userId,
 //victimdesignation,victimworkingrealtionship
 router.get("/usercomplaint",complaintuseradmin)//email {of user}
 router.get("/userwitness",witnessuser)
-router.get("/complaint/one",onecomplaintbyid)
-router.get("/complaint/witness/one",onewitnesscomplaintbyid)
-router.get("/sos/one",onesosbyid)
+router.post("/complaint/one",onecomplaintbyid)
+router.post("/complaint/witness/one",onewitnesscomplaintbyid)
+router.post("/sos/one",onesosbyid)
 // router.get("/")
 module.exports=router

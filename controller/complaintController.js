@@ -194,8 +194,6 @@ onecomplaintbyid:async(req,res)=>{
     try {
         const {userId}=req.body
     const complaint=await Complaint.findOne({_id:userId})
-    
-    
     res.json({message:"This is requested",status:true,complaint})
     } catch (error) {
         res.json({message:error.message,status:false})
