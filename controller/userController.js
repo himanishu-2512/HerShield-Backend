@@ -70,23 +70,9 @@ try {
         }else{
             res.json({message:"password is wrong",status:false})
         }}
-        else{
-           
-            const token = await Token.create({
-                userId: user._id,
-                token: Math.floor(Math.random()*1000000),
-              });
-              if(token){
-              const send = await sendMail(
-                user.email,
-                "HerShield Verification Code",
-                `Hello, this is the OTP requested for verification, the token will be valid only for 1 hour!!! ${token.token}`
-              );
-               
-            
-        }
+       
 
-    }else{
+    else{
         res.json({message:"email is wrong!",status:false})
     }
    
