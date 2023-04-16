@@ -1,8 +1,9 @@
 const router=require("express").Router()
-const {register,complaintall,complaintuser,complaintpolice,complaintuseradmin,complaintuserpolice,registerwitness, witnessuser} =require("../controller/complaintController")
+const {register,complaintall,complaintuser,complaintallwitness,complaintpolice,complaintuseradmin,complaintuserpolice,registerwitness, witnessuser,witnessall} =require("../controller/complaintController")
 
 
 router.get("/all",complaintall)
+router.get("/all/witness",complaintallwitness)
 router.post("/register",register)
 //userId,name,phone,email,designation,contactno,adhaar,organisationname,organisationemail,
 //organisationphone,organisationhead,organisationstate,
