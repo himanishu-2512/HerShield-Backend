@@ -1,4 +1,5 @@
 const Police=require("../model/Police/Police")
+const bcrypt=require("bcrypt")
 module.exports={
 register:async(req,res)=>{
     try {
@@ -6,7 +7,7 @@ register:async(req,res)=>{
     
         const hash=await bcrypt.hash(password,10)
         
-        const admin=await Admin.create({
+        const admin=await Police.create({
             name,
             email,
             contactno,
@@ -15,9 +16,9 @@ register:async(req,res)=>{
             city
         })
         if(admin)
-        res.json({message:"admin created successfully",status:true}); 
+        res.json({message:"police created successfully",status:true,admin}); 
         else
-        res.json({message:"admin creation unsucessfull",status:false})
+        res.json({message:"police creation unsucessfull",status:false})
     } catch (error) {
         console.log(error)
         res.json({message:error.message,status:false})

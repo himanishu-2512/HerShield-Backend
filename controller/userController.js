@@ -356,5 +356,16 @@ res.json({message:"status not updated successfully",status:"true"})
 }
 
 },
+soshistory:async(req,res)=>{
+    try {
+        const {userId}=req.body
+    const user=await User.findOne({_id:userId}).populate({path:'SOS'});
+    console.log(user)
+    res.json({message:"user sos history",status:true,user})
+    } catch (error) {
+        console.log(error)
+        res.json({message:error.message,status:false})
+    }
 
+}
 }
