@@ -1,4 +1,5 @@
 const express=require("express")
+const cors=require("cors")
 const app=express()
 app.use(express.json())
 const authroutes=require("./routes/user")
@@ -7,8 +8,9 @@ const commentroutes=require("./routes/comment")
 const complaintroutes=require("./routes/complaint")
 const adminroutes=require("./routes/admin")
 require("dotenv").config()
+app.use(cors())
 const { default: mongoose } = require("mongoose")
-
+const PORT=process.env.PORT
 
 mongoose.connect(process.env.uri,
     { useNewUrlParser: true, useUnifiedTopology: true })
@@ -30,6 +32,6 @@ app.get("/",(req,res)=>{
     console.log("Hello What are you doing")
     res.json({message:"hello"})
 })
-app.listen(8000,(req,res)=>{
+app.listen(PORT,(req,res)=>{
     console.log("Server is running on port 8000")
 })
