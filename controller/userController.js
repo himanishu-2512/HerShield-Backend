@@ -310,7 +310,7 @@ try {
     const {userId,sosId,activepin}=req.body
     const user=await User.findOne({_id:userId})
     if(user.activepin==activepin){
-        const sos=await SOS.findOne({sosId})
+        const sos=await SOS.findOne({_id:sosId})
         sos.status="False SOS"
        await  sos.save()
        res.json({message:"SOS status is updated to False SOS",status:true})
@@ -324,12 +324,17 @@ try {
 }
 },
 activepin:async(req,res)=>{
+try {
+    
 const {userId,activepin}=req.body
 const user=await User.findOne({_id:userId})
 user.activepin=activepin
 await user.save()
-
-
+res.json({message:"your active pin is created",status:true})
+} catch (error) {
+    console.log(error)
+    res.json({message:ErrorEvent.message,status:false})
+}
 
 },
 safesos:async(req,res)=>{
