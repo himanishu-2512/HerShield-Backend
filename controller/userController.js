@@ -63,9 +63,9 @@ try {
     const {email,password}=req.body
     const user=await User.findOne({email})
     if(user){
-        if(user.isVerified){
+      
         const pass=await bcrypt.compare(password,user.password)
-        if(password){
+        if(pass){
             res.json({message:"Login Successful",status:true,user})
         }else{
             res.json({message:"password is wrong",status:false})
@@ -82,8 +82,7 @@ try {
                 "HerShield Verification Code",
                 `Hello, this is the OTP requested for verification, the token will be valid only for 1 hour!!! ${token.token}`
               );
-               res.json({message:"user is not verified. Verify it first.Verication mail is sent on your email.",status:false})
-              }
+               
             
         }
 
