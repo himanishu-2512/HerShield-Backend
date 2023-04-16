@@ -10,17 +10,20 @@ module.exports={
 register:async(req,res)=>{
 try {
 const {name,email,contactno,password}=req.body
+const USER =(await User.findOne({ email: email }))
+if (USER){
+      res.send({ message: "User already registered" });}
+      
 const hashedpass=await bcrypt.hash(password,10)
-const user=await  User.create({
+const user=await User.create({
 name,
 email,
 contactno,
 password:hashedpass,
 })
-res.write(JSON.stringify({
-    message:"user registered suceesfully",status:200,result:true
-}))
+
 if(user){
+    await user.save()
     const token = await Token.create({
         userId: user._id,
         token: Math.floor(Math.random()*1000000),
@@ -31,9 +34,9 @@ if(user){
         "HerShield Verification Code",
         `Hello, this is the OTP requested for verification, the token will be valid only for 1 hour!!! ${token.token}`
       );
-      res.write(JSON.stringify({
+      res.json({
         message:"user registered suceesfully and sent a mail on your email address",status:200,result:true
-    }))
+    })
     console.log("yessss")
 res.end()
 }
