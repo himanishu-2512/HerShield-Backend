@@ -44,7 +44,7 @@ type:mongoose.Schema.Types.ObjectId
         type:String,
         required:true,
     },
-    victimworkingrealtionship:{
+    victimworkingrelationship:{
         type:String,
         required:true,
     },
@@ -68,7 +68,7 @@ type:mongoose.Schema.Types.ObjectId
         type:String,
         required:true,
     },
-    oragnisationdistrict:{
+    organisationdistrict:{
         type:String,
         required:true,
     },
