@@ -274,6 +274,7 @@ updateContacts:async(req,res)=>{
 
 allusers:async(req,res)=>{
     try {
+        console.log("yes")
         const limit=req.query.limit
         const skip=req.query.skip
         const user=await User.find({}).skip(skip).limit(limit)

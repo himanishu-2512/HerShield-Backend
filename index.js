@@ -12,7 +12,7 @@ app.use(cors())
 const { default: mongoose } = require("mongoose")
 const PORT=process.env.PORT
 
-mongoose.connect(process.env.uri,
+mongoose.connect(process.env.MONGO_URL,
     { useNewUrlParser: true, useUnifiedTopology: true })
 .then(
     console.log("db connection sucessful")
