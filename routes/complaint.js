@@ -4,6 +4,12 @@ const {register,complaintall,complaintuser,complaintpolice,complaintuseradmin,co
 
 router.get("/all",complaintall)
 router.post("/register",register)
-router.get("/user",complaintuser)
-router.get("/usercomplaint",complaintuseradmin)
+//userId,name,phone,email,designation,contactno,adhaar,organisationname,organisationemail,
+//organisationphone,organisationhead,organisationstate,
+//organisationdistrict,organisationaddress, offendersname,offendersdesignation,offendersworkingrelationship
+router.get("/user",complaintuser)//userId
+router.post("/register/witness",registerwitness)//
+router.get("/usercomplaint",complaintuseradmin)//email {of user}
+
+// router.get("/")
 module.exports=router

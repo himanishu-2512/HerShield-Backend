@@ -47,7 +47,7 @@ res.json({message:"user is not registered!!",status:false})
 },
 registerwitness:async(req,res)=>{
     try {
-        const {userId,name,phone,email,designation,contactno,adhaar,organisationname,organisationemail,organisationphone,organisationhead,organisationstate,organisationdistrict,organisationaddress, offendersname,offendersdesignation,offendersworkingrelationship}=req.body
+        const {userId,name,phone,email,designation,contactno,adhaar,organisationname,organisationemail,organisationphone,organisationhead,organisationstate,organisationdistrict,organisationaddress, offendersname,offendersdesignation,offendersworkingrelationship,victimname,victimphone, victimemail,victimdesignation,victimworkingrealtionship}=req.body
         const user=await User.findById(userId)
         if(user){
     const complaint=await Complaint.create({
@@ -67,7 +67,8 @@ registerwitness:async(req,res)=>{
         organisationaddress,
         offendersname,
         offendersdesignation,
-        offendersworkingrelationship
+        offendersworkingrelationship,
+        victimname,victimphone, victimemail,victimdesignation,victimworkingrealtionship
     })
 if(complaint){
    await user.complaints.push(complaint)

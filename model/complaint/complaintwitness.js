@@ -1,5 +1,8 @@
 const mongoose=require("mongoose");
 const witnessComplaintSchema=new mongoose.Schema({
+    userId:{
+type:mongoose.Schema.Types.ObjectId
+    },
     name:{
         type:String,
         required:true,
