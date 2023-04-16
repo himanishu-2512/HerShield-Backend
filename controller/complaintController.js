@@ -136,6 +136,21 @@ complaintuser:async(req,res)=>{
         res.json({message:error.message,status:false});
 }
 },
+witnessuser:async(req,res)=>{
+    try {
+        const {skip,limit}=req.query
+        const {userId}=req.body
+    const complaint=await User.find({_id:userId}).skip(skip).limit(limit).populate({path:"witnesscomplaints"});
+    if(complaint)
+    res.json({message:"These are the complaints",status:true,complaint})
+    else
+    res.json({message:"something went wrong",status:false})
+    } catch (error) {
+        
+        console.log(error)
+        res.json({message:error.message,status:false});
+}
+},
 complaintpolice:async(req,res)=>{
     try {
         const {skip,limit}=req.query
