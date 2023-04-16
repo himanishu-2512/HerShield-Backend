@@ -1,7 +1,8 @@
 const Complaint=require("../model/complaint/complaintModel")
 const User=require("../model/user/userModel")
 const Police=require("../model/Police/Police")
-const complaint=require("../model/complaint/complaintModel")
+
+const WitnessComplaint=require("../model/complaint/complaintwitness")
 
 module.exports={
 register:async(req,res)=>{
