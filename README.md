@@ -26,7 +26,7 @@ Our online community forums allow users to provide support to each other, share 
 ## E-Learning Safety Awareness
 Our platform includes e-learning modules that can help users learn about safety awareness, empowering them with the knowledge and tools they need to stay safe.
 
-## Cautious Mode
+## Cautious Mode(Future Implementation)
 Our platform includes a cautious mode feature that notifies emergency contacts about low battery and the user's last location. It also records the user's voice after 3 minutes for 1 minute and checks for a safe button response. If there is no response from the user within 1 minute, it will automatically trigger an SOS alert and inform the police and emergency contacts.
 
 We are committed to providing a safe and secure platform for our users, and we are continuously working to improve our services and expand our resources. If you have any questions or feedback, please do not hesitate to contact us.
