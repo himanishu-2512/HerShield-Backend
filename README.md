@@ -41,7 +41,7 @@ For Web
 
 For Mobile App
 
-**Client:** React, Redux, MaterialUI
+**Client:** Flutter, Dart
 
 For Backend
 
