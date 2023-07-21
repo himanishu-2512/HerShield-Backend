@@ -18,7 +18,7 @@
     "express": "^4.18.2",
     "mongoose": "^7.0.3",
     "nodemailer": "^6.9.1",
-    "nodemon": "^2.0.22",
+    "nodemon": "^3.0.1",
     "rapidapi": "^2.0.3"
   }
 }
